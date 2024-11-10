@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Profile</title>
+<!-- Link to Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Link to your custom stylesheet -->
+<link rel="stylesheet" href="profile.css"/>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <a href="/goHome">News feed</a>
+        <a href="/openCreatePost">Create post</a>
+        <a href="/goProfile">My profile</a>
+        <a href="/logout">LogOut</a>
+    </nav>
+
+    <p>Hi, <span th:text="${session.username}"></span></p>
+    <h2>User Profile</h2>
+    <div class="container">
+        <div class="section1">
+            <img alt="Profile Image" th:src="'data:image/jpeg;base64,' + ${userdetails.photoBase64}" />
+            <div class="section1-info">
+                <span><i class="fas fa-user"></i> <span th:text="${userdetails.username}"></span></span>
+                <span><i class="fas fa-calendar-alt"></i> <span th:text="${userdetails.dob}"></span></span>
+                <span><i class="fas fa-genderless"></i> <span th:text="${userdetails.gender}"></span></span>
+                <span><i class="fas fa-map-marker-alt"></i> <span th:text="${userdetails.city}"></span></span>
+            </div>
+        </div>
+        <div class="section2">
+            <span><i class="fas fa-user-edit"></i> <span th:text="${userdetails.bio}"></span></span>
+            <span><i class="fas fa-graduation-cap"></i> <span th:text="${userdetails.college}"></span></span>
+            <span>
+                <a th:href="${user.linkedIn}" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </span>
+            <span>
+                <a th:href="${user.gitHub}" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </span>
+          
+        </div>
+    </div>
+	
+</body>
+</html>

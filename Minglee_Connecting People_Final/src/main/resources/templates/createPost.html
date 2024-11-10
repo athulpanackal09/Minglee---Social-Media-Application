@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New Post</title>
+<link rel="stylesheet" href="createPost.css" />
+</head>
+<body>
+	<!-- Navigation bar -->
+	<nav>
+		<a href="/goHome">News feed</a> <a href="/openCreatePost">Create
+			post</a> <a href="/goProfile">My profile</a>
+			<a href="/logout">LogOut</a>
+	</nav>
+
+    Hi, <span th:text="${session.username}"></span>
+	<h2>Create Post</h2>
+
+	<div class="container">
+		<form id="profileForm" action="/createPost" method="post"
+			enctype="multipart/form-data">
+			<textarea name="caption" placeholder="Write your caption here..."
+				required></textarea>
+			<br/>
+			<br/>
+			<!-- Custom file input button -->
+			<label for="file-upload" class="custom-file-upload"> Select Image </label> 
+			<input type="file" id="file-upload" name="photo" accept="image/*" />
+			<p id="file-name">No file chosen</p>
+			
+			<script>
+        // JavaScript to update file name
+        document.getElementById('file-upload').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+            document.getElementById('file-name').textContent = fileName;
+        });
+    		</script>
+			
+			<br/>
+			<br/> 
+			<input type="submit" value="POST"></input>
+		</form>
+	</div>
+</body>
+</html>

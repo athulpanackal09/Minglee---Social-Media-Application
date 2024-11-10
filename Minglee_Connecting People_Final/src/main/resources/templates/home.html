@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Minglee/Home</title>
+<link rel="stylesheet" href="home.css" />
+</head>
+<body>
+	<nav>
+		<a href="/goHome">News feed</a> <a href="/openCreatePost">Create
+			post</a> <a href="/goProfile">My profile</a> <a href="/logout">LogOut</a>
+	</nav>
+
+	Hi,
+	<span th:text="${session.username}"></span>
+
+	<h1>News Feed</h1>
+	<div class="post-container">
+		<span th:each="post:${allPosts}">
+			<p>
+				<strong>User:</strong>
+			</p>
+			<div class="user-details">
+			
+			<a th:href="@{/userProfile(username=${post.user.username})}">
+				<img th:if="${post.user.photoBase64}"
+					th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}"
+					alt="User Photo" /> 
+			</a>
+					<span th:if="${post.user != null}"
+					th:text="${post.user.username}"></span>
+			</div>
+			<div class="post-details">
+				<p>
+					<strong>Photo:</strong>
+				</p>
+				<img th:if="${post.photoBase64}"
+					th:src="'data:image/jpeg;base64,' + ${post.photoBase64}"
+					alt="Profile Photo" />
+				<p>
+					<strong>Caption:</strong> <span th:text="${post.caption}"></span>
+				</p>
+				
+				<br/>
+
+				<p>
+					<strong>Likes:</strong> <span th:text="${post.likes}"></span>
+				</p>
+
+				<!-- Like form -->
+				<form action="/likePost" method="post">
+					<input type="hidden" name="id" th:value="${post.id}"> <input
+						type="submit" value="LIKE POST">
+				</form>
+
+				<!-- Comment form -->
+				<form action="/addComment" method="post" class="comment-form">
+					<input type="hidden" name="id" th:value="${post.id}">
+					<textarea name="comment" placeholder="Add a comment..." required></textarea>
+					<input type="submit" value="Comment">
+				</form>
+
+				<!-- Displaying Comments -->
+				<div class="comments-section">
+					<h4>Comments:</h4>
+					<ul>
+						<li th:each="comment : ${post.comments}"><span
+							th:text="${comment}"></span></li>
+					</ul>
+				</div>
+			</div>
+		</span>
+	</div>
+</body>
+</html>

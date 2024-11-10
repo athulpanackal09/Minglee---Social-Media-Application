@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Minglee/My Profile</title>
+<!-- Link to Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Link to your custom stylesheet -->
+<link rel="stylesheet" href="profile.css"/>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <a href="/goHome">News feed</a>
+        <a href="/openCreatePost">Create post</a>
+        <a href="/goProfile">My profile</a>
+        <a href="/logout">LogOut</a>
+    </nav>
+
+    <p>Hi, <span th:text="${session.username}"></span></p>
+    <h2>My Profile</h2>
+    <div class="container">
+        <div class="section1">
+            <img alt="Profile Image" th:src="'data:image/jpeg;base64,' + ${user.photoBase64}" />
+            <div class="section1-info">
+                <span><i class="fas fa-user"></i> <span th:text="${user.username}"></span></span>
+                <span><i class="fas fa-calendar-alt"></i> <span th:text="${user.dob}"></span></span>
+                <span><i class="fas fa-genderless"></i> <span th:text="${user.gender}"></span></span>
+                <span><i class="fas fa-map-marker-alt"></i> <span th:text="${user.city}"></span></span>
+            </div>
+        </div>
+        <div class="section2">
+            <span><i class="fas fa-user-edit"></i> <span th:text="${user.bio}"></span></span>
+            <span><i class="fas fa-graduation-cap"></i> <span th:text="${user.college}"></span></span>
+            <span>
+                <a th:href="${user.linkedIn}" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </span>
+            <span>
+                <a th:href="${user.gitHub}" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </span>
+            <span><a href="/openEditProfile"><i class="fas fa-edit"></i> Edit Profile</a></span>
+        </div>
+    </div>
+    
+    
+    <h1>Post Details</h1>
+	<div class="post-container">
+		<span th:each="post:${posts}">
+			<p>
+				<strong>User:</strong>
+			</p>
+			<div class="user-details">
+				<img th:if="${post.user.photoBase64}"
+					th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}"
+					alt="User Photo" /> <span th:if="${post.user != null}"
+					th:text="${post.user.username}"></span>
+				</p>
+			</div>
+			<div class="post-details">
+				<p>
+					<strong>Photo:</strong>
+				</p>
+				<img th:if="${post.photoBase64}"
+					th:src="'data:image/jpeg;base64,' + ${post.photoBase64}"
+					alt="Profile Photo" />
+				<p>
+					<strong>Caption:</strong> <span th:text="${post.caption}"></span>
+				</p>
+				<br/>
+				<p>
+					<strong>Likes:</strong> <span th:text="${post.likes}"></span>
+				</p>
+
+				<!-- Like form -->
+				<form action="/likePost" method="post">
+					<input type="hidden" name="id" th:value="${post.id}"> <input
+						type="submit" value="LIKE POST">
+				</form>
+
+				<!-- Comment form -->
+				<form action="/addComment" method="post" class="comment-form">
+					<input type="hidden" name="id" th:value="${post.id}">
+					<textarea name="comment" placeholder="Add a comment..." required></textarea>
+					<input type="submit" value="Comment">
+				</form>
+
+				<!-- Displaying Comments -->
+				<div class="comments-section">
+					<h4>Comments:</h4>
+					<ul>
+						<li th:each="comment : ${post.comments}"><span
+							th:text="${comment}"></span></li>
+					</ul>
+				</div>
+			</div>
+		</span>
+	</div>
+	
+</body>
+</html>

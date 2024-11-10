@@ -1,0 +1,205 @@
+@charset "UTF-8";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color:  #f0f0f0;
+    color: #2A2A2A;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #7695FF;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background-color: #9DBDFF;
+    color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section1 {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.section1 img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin-right: 40px;
+}
+
+.section1-info {
+    display: flex;
+    flex-direction: column;
+    margin-top:30px;
+    align-items: flex-start;
+}
+
+.section1-info span {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.section2 {
+    text-align: center;
+}
+
+.section2 span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.section2 a {
+    text-decoration: none;
+    color: blue;
+}
+
+.section2 a:hover {
+    text-decoration: underline;
+}
+
+/* Post card */
+.post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.post-container span {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.user-details {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center the items */
+    justify-content: center;
+}
+
+.user-details span {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.user-details img {
+    border-radius: 50%; /* Makes the image round */
+    width: 50px; /* Set width for the user icon */
+    height: 50px; /* Set height for the user icon */
+    object-fit: cover; /* Ensures the image covers the entire area */
+    margin-right: 10px; /* Space between the icon and username */
+}
+
+.post-details img {
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.post-container p {
+    color: #2A2A2A;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+
+
+/* Like and Comment form */
+form {
+    margin-top: 10px;
+}
+
+input[type="submit"] {
+    background-color: #FF9874;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #FF9874;
+    opacity: 0.8;
+}
+
+/* Comment form styling */
+.comment-form textarea {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #7695FF;
+    border-radius: 10px;
+    font-size: 1em;
+    resize: none;
+}
+
+/* Comments section */
+.comments-section {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.comments-section h4 {
+    color: #7695FF;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.comments-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.comments-section ul li {
+    background-color: #9DBDFF;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #2A2A2A;
+}

@@ -1,0 +1,113 @@
+@charset "UTF-8";
+/* General page styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color:  #f0f0f0;
+    color: #2A2A2A;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #7695FF;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background-color: #9DBDFF;
+    color: #fff;
+}
+
+
+.container{
+  display: flex;
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center; /* Vertically centers the content */
+  height: 80vh; /* Sets the height of the container to 60% of the viewport height */
+  width: 100%; /* Adjust this value to increase or decrease the width */
+}
+
+form {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 60px; 
+  text-align: center;
+  width: 30%;
+}
+
+textarea {
+    width: 100%; /* Full width of its container */
+    height: 150px; /* Fixed height */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 10px; /* Space inside the textarea */
+    box-sizing: border-box; /* Includes padding and border in width and height */
+    overflow: auto; /* Adds scrollbars if content overflows */
+    resize: none; /* Allow resizing both horizontally and vertically */
+}
+
+/* Hide the default file input */
+input[type="file"] {
+    display: none; /* Hide the file input */
+}
+
+
+/* Style the custom button */
+.custom-file-upload {
+    border: 2px solid #007bff; /* Border color for the button */
+    display: inline-block; /* Inline-block to fit the text */
+    padding: 10px 20px; /* Padding inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #007bff; /* Background color */
+    color: white; /* Text color */
+    border-radius: 4px; /* Rounded corners */
+    text-align: center; /* Center text alignment */
+    font-size: 16px; /* Font size */
+    font-family: Arial, sans-serif; /* Font family */
+    transition: background-color 0.3s, border-color 0.3s; /* Transition effects */
+}
+
+/* Button hover effect */
+.custom-file-upload:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+    border-color: #004494; /* Darker border color on hover */
+}
+
+/* Style for displaying file name */
+#file-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px; 
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
