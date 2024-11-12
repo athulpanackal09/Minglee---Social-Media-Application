@@ -76,7 +76,7 @@ public class NavigationController {
 		}
 		else
 		{
-			return "inex";
+			return "index";
 		}
 	}
 
